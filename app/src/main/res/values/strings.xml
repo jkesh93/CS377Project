@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">CS377Project</string>
+
+    // making a review title
+    <string name="title">Title</string>
+
+    // buttons
+    <string name="back">Back</string>
+    <string name="view">View</string>
+    <string name="add">Add</string>
+    <string name="save_button">Save</string>
+    <string name="delete_button">Delete</string>
+
+    // up close review fields
+    <string name="item_title">Title</string>
+    <string name="category">Category</string>
+    <string name="rating">Rating</string>
+    <string name="review">Review</string>
+
+    // misc
+    <string name="sort">Sort By</string>
+</resources>

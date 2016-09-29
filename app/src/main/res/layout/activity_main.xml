@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jay.cs377project.MainActivity">
+
+    <TextView
+        android:text="My Simple Review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="114dp"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="@string/add"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:layout_alignBottom="@+id/view"
+        android:layout_alignStart="@+id/view"
+        android:layout_marginBottom="63dp"
+        android:onClick="addReview" />
+
+    <Button
+        android:text="@string/view"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/view"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="48dp"
+        android:onClick="viewReview" />
+</RelativeLayout>

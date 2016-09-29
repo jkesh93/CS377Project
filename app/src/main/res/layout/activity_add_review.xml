@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_add_review"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jay.cs377project.addReview">
+
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/item_title"
+        android:ems="10"
+        android:layout_marginTop="47dp"
+        android:id="@+id/title_AR"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/category"
+        android:ems="10"
+        android:layout_marginTop="33dp"
+        android:id="@+id/category_AR"
+        android:layout_below="@+id/title_AR"
+        android:layout_alignStart="@+id/title_AR" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_below="@+id/category_AR"
+        android:layout_alignStart="@+id/category_AR"
+        android:layout_marginTop="28dp"
+        android:id="@+id/rating_AR"
+        android:hint="@string/rating" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/review"
+        android:ems="10"
+        android:layout_marginTop="28dp"
+        android:id="@+id/review_AR"
+        android:layout_below="@+id/rating_AR"
+        android:layout_alignStart="@+id/rating_AR" />
+
+    <Button
+        android:text="@string/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="67dp"
+        android:id="@+id/save_btn_AR"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/review_AR"
+        android:onClick="insertReview" />
+
+    <Button
+        android:text="@string/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/save_btn_AR"
+        android:layout_alignStart="@+id/review_AR"
+        android:id="@+id/back_btn_AR"
+        android:onClick="goBack" />
+
+</RelativeLayout>
