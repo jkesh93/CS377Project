@@ -50,7 +50,6 @@ public class ReviewDBHelper extends SQLiteOpenHelper {
         String[] projections = {ReviewContract.ReviewInfo.REVIEW_TITLE, ReviewContract.ReviewInfo.REVIEW_CATEGORY, ReviewContract.ReviewInfo.REVIEW_RATING, ReviewContract.ReviewInfo.REVIEW_REVIEW};
         cursor = db.query(ReviewContract.ReviewInfo.TABLE_NAME, projections, null, null, null, null, null);
         return cursor;
-
     }
 
     @Override

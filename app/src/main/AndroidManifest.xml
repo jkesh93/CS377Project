@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".addReview" />
-        <activity android:name=".viewReview"></activity>
+        <activity android:name=".viewReview" />
     </application>
 
 </manifest>

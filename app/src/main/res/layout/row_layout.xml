@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="#A74D4D"
+    >
+
+
+    <TextView
+        android:text="Title"
+        android:layout_width="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/title_RL"
+        android:textColor="#000000" />
+
+
+        <TextView
+        android:text="Category"
+        android:layout_width="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/category_RL"
+        android:textColor="?attr/actionMenuTextColor" />
+
+    <TextView
+        android:text="Rating"
+        android:layout_width="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/rating_RL"
+        android:textColor="?attr/actionMenuTextColor" />
+
+    <TextView
+        android:text="Review"
+        android:layout_width="80dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/review_RL"
+        android:textColor="?attr/actionMenuTextColor" />
+</LinearLayout>

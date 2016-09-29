@@ -45,4 +45,9 @@ public class DataProvider {
         this.rating = rating;
         this.review = review;
     }
+
+    public DataProvider(String title, String category) {
+        this.title = title;
+        this.category = category;
+    }
 }

@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 
 import java.util.List;
@@ -22,7 +23,8 @@ public class viewReview extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_review_list);
         listView = (ListView) findViewById(R.id.reviews_list_rl);
-        listDataAdapter = new ListDataAdapter(getApplicationContext(), R.layout.review_layout_close);
+        listDataAdapter = new ListDataAdapter(getApplicationContext(), R.layout.row_layout);
+        listView.setAdapter(listDataAdapter);
         reviewDBHelper = new ReviewDBHelper(getApplicationContext());
         sqLiteDatabase = reviewDBHelper.getReadableDatabase();
         cursor = reviewDBHelper.getReviews(sqLiteDatabase);
@@ -39,24 +41,7 @@ public class viewReview extends AppCompatActivity {
                 review = cursor.getString(3);
                 DataProvider dataProvider = new DataProvider(title, category, rating, review);
                 listDataAdapter.add(dataProvider);
-
-
-
-
             }while(cursor.moveToNext());
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
