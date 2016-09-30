@@ -1,13 +1,18 @@
 package com.example.jay.cs377project;
 
 import android.content.Context;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class data_cube extends AppCompatActivity {
     TextView dcTitle, dcCat, dcRat, dcRev;
     viewReview viewReview = new viewReview();
+    ReviewDBHelper reviewDBHelper;
+    SQLiteDatabase sqLiteDatabase;
     Context context = this;
 
 
@@ -30,5 +35,12 @@ public class data_cube extends AppCompatActivity {
 
 
 
+    }
+
+
+    public void deleteRow(View view){
+        Intent intent = new Intent(this, viewReview.class);
+        intent.putExtra("KEY", dcTitle.getText().toString());
+        startActivity(intent);
     }
 }

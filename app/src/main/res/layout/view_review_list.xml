@@ -12,23 +12,22 @@
         android:layout_height="400dp" />
 
     <Button
-        android:text="@string/back"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/sort_btn"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="31dp"
-        android:id="@+id/back_btn"
-        android:onClick="goHome" />
-
-    <Button
         android:text="@string/sort"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="41dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginEnd="43dp"
         android:id="@+id/sort_btn"
+        android:onClick="showSortOptions"
         android:layout_below="@+id/reviews_list_rl"
-        android:layout_alignParentEnd="true"
-        android:onClick="showSortOptions" />
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="@string/back"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:id="@+id/back_btn"
+        android:onClick="goHome"
+        android:layout_below="@+id/reviews_list_rl"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

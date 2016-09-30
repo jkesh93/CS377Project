@@ -32,6 +32,8 @@ public class viewReview extends AppCompatActivity {
     ReviewDBHelper reviewDBHelper;
     Cursor cursor;
     ListDataAdapter listDataAdapter;
+    Bundle extras;
+    String value;
     int pos;
 
 
@@ -45,8 +47,13 @@ public class viewReview extends AppCompatActivity {
         reviewDBHelper = new ReviewDBHelper(getApplicationContext());
         sqLiteDatabase = reviewDBHelper.getReadableDatabase();
         cursor = reviewDBHelper.getReviews(sqLiteDatabase);
+        extras = getIntent().getExtras();
 
-
+        if(extras != null){
+            value = extras.getString("KEY");
+            String whereClause2 = "title" + " = " + "?";
+            sqLiteDatabase.delete(ReviewContract.ReviewInfo.TABLE_NAME, whereClause2, new String[]{value});
+        }
 
 
         if(cursor.moveToFirst()){
@@ -68,6 +75,7 @@ public class viewReview extends AppCompatActivity {
 
     }
 
+
     public void goToClose(View view){
         Intent intent = new Intent(this, data_cube.class);
         startActivity(intent);
@@ -78,81 +86,151 @@ public class viewReview extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+
     public void showSortOptions(View view){
-        AlertDialog.Builder showSortWindow = new AlertDialog.Builder(this);
 
-        showSortWindow.setMessage("How would you like to sort this list?")
-                .setNeutralButton("Category", new DialogInterface.OnClickListener() {
-                    @Override
+        final CharSequence[] sortTypes = {"Title","Category","Rating","Review"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Sort By");
+        builder.setItems(sortTypes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        listView = (ListView) findViewById(R.id.reviews_list_rl);
-                        listDataAdapter = new ListDataAdapter(getApplicationContext(), R.layout.row_layout);
-                        listView.setAdapter(listDataAdapter);
-                        reviewDBHelper = new ReviewDBHelper(getApplicationContext());
-                        sqLiteDatabase = reviewDBHelper.getReadableDatabase();
-                        cursor = reviewDBHelper.getReviewsSortByCategory(sqLiteDatabase);
+                        // The 'which' argument contains the index position
+                        // of the selected item
+                        switch (which) {
+                            case 0:
+                                listView = (ListView) findViewById(R.id.reviews_list_rl);
+                                listDataAdapter = new ListDataAdapter(getApplicationContext(), R.layout.row_layout);
+                                listView.setAdapter(listDataAdapter);
+                                reviewDBHelper = new ReviewDBHelper(getApplicationContext());
+                                sqLiteDatabase = reviewDBHelper.getReadableDatabase();
+                                cursor = reviewDBHelper.getReviewsSortByTitle(sqLiteDatabase);
 
-                        if(cursor.moveToFirst()){
 
 
-                            do{
 
-                                String title, category, rating, review;
-                                title = cursor.getString(0);
-                                category = cursor.getString(1);
-                                rating = cursor.getString(2);
-                                review = cursor.getString(3);
-                                DataProvider dataProvider = new DataProvider(title, category, rating, review);
-                                listDataAdapter.add(dataProvider);
-                            }while(cursor.moveToNext());
+                                if(cursor.moveToFirst()){
+
+
+                                    do{
+
+                                        String title, category, rating, review;
+                                        title = cursor.getString(0);
+                                        category = cursor.getString(1);
+                                        rating = cursor.getString(2);
+                                        review = cursor.getString(3);
+                                        DataProvider dataProvider = new DataProvider(title, category, rating, review);
+                                        listDataAdapter.add(dataProvider);
+                                    }while(cursor.moveToNext());
+                                }
+
+                                listView.setOnItemClickListener(new ItemList());
+                                Toast.makeText(viewReview.this, "Sorting By " + sortTypes[0], Toast.LENGTH_SHORT).show();
+                                break;
+
+
+
+                            case 1:
+                                listView = (ListView) findViewById(R.id.reviews_list_rl);
+                                listDataAdapter = new ListDataAdapter(getApplicationContext(), R.layout.row_layout);
+                                listView.setAdapter(listDataAdapter);
+                                reviewDBHelper = new ReviewDBHelper(getApplicationContext());
+                                sqLiteDatabase = reviewDBHelper.getReadableDatabase();
+                                cursor = reviewDBHelper.getReviewsSortByCategory(sqLiteDatabase);
+
+
+
+
+                                if(cursor.moveToFirst()){
+
+
+                                    do{
+
+                                        String title, category, rating, review;
+                                        title = cursor.getString(0);
+                                        category = cursor.getString(1);
+                                        rating = cursor.getString(2);
+                                        review = cursor.getString(3);
+                                        DataProvider dataProvider = new DataProvider(title, category, rating, review);
+                                        listDataAdapter.add(dataProvider);
+                                    }while(cursor.moveToNext());
+                                }
+
+                                listView.setOnItemClickListener(new ItemList());
+                                Toast.makeText(viewReview.this, "Sorting By " + sortTypes[1], Toast.LENGTH_SHORT).show();
+                                break;
+
+
+
+                            case 2:
+                                listView = (ListView) findViewById(R.id.reviews_list_rl);
+                                listDataAdapter = new ListDataAdapter(getApplicationContext(), R.layout.row_layout);
+                                listView.setAdapter(listDataAdapter);
+                                reviewDBHelper = new ReviewDBHelper(getApplicationContext());
+                                sqLiteDatabase = reviewDBHelper.getReadableDatabase();
+                                cursor = reviewDBHelper.getReviewsSortByRating(sqLiteDatabase);
+
+
+
+
+                                if(cursor.moveToFirst()){
+
+
+                                    do{
+
+                                        String title, category, rating, review;
+                                        title = cursor.getString(0);
+                                        category = cursor.getString(1);
+                                        rating = cursor.getString(2);
+                                        review = cursor.getString(3);
+                                        DataProvider dataProvider = new DataProvider(title, category, rating, review);
+                                        listDataAdapter.add(dataProvider);
+                                    }while(cursor.moveToNext());
+                                }
+
+                                listView.setOnItemClickListener(new ItemList());
+                                Toast.makeText(viewReview.this, "Sorting By " + sortTypes[2], Toast.LENGTH_SHORT).show();
+                                break;
+
+
+                            case 3:
+                                listView = (ListView) findViewById(R.id.reviews_list_rl);
+                                listDataAdapter = new ListDataAdapter(getApplicationContext(), R.layout.row_layout);
+                                listView.setAdapter(listDataAdapter);
+                                reviewDBHelper = new ReviewDBHelper(getApplicationContext());
+                                sqLiteDatabase = reviewDBHelper.getReadableDatabase();
+                                cursor = reviewDBHelper.getReviewsSortByReview(sqLiteDatabase);
+
+
+
+
+                                if(cursor.moveToFirst()){
+
+
+                                    do{
+
+                                        String title, category, rating, review;
+                                        title = cursor.getString(0);
+                                        category = cursor.getString(1);
+                                        rating = cursor.getString(2);
+                                        review = cursor.getString(3);
+                                        DataProvider dataProvider = new DataProvider(title, category, rating, review);
+                                        listDataAdapter.add(dataProvider);
+                                    }while(cursor.moveToNext());
+                                }
+
+                                listView.setOnItemClickListener(new ItemList());
+                                Toast.makeText(viewReview.this, "Sorting By " + sortTypes[3], Toast.LENGTH_SHORT).show();
+                                break;
+
+
                         }
-
-                        listView.setOnItemClickListener(new ItemList());
-
-
-
-
-                    }
-                })
-                .setPositiveButton("Rating", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        listView = (ListView) findViewById(R.id.reviews_list_rl);
-                        listDataAdapter = new ListDataAdapter(getApplicationContext(), R.layout.row_layout);
-                        listView.setAdapter(listDataAdapter);
-                        reviewDBHelper = new ReviewDBHelper(getApplicationContext());
-                        sqLiteDatabase = reviewDBHelper.getReadableDatabase();
-                        cursor = reviewDBHelper.getReviewsSortByRating(sqLiteDatabase);
-
-                        if(cursor.moveToFirst()){
-
-
-                            do{
-
-                                String title, category, rating, review;
-                                title = cursor.getString(0);
-                                category = cursor.getString(1);
-                                rating = cursor.getString(2);
-                                review = cursor.getString(3);
-                                DataProvider dataProvider = new DataProvider(title, category, rating, review);
-                                listDataAdapter.add(dataProvider);
-                            }while(cursor.moveToNext());
-                        }
-
-                        listView.setOnItemClickListener(new ItemList());
-
-
-
-
-
-
                     }
                 });
+        builder.create().show();
 
-
-            showSortWindow.show();
-
-        }
+    }
 
 
 
@@ -168,7 +246,6 @@ public class viewReview extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-            Object  o = listView.getItemAtPosition(position);
             ViewGroup viewGroup = (ViewGroup) view;
             title = (TextView) viewGroup.findViewById(R.id.title_RL);
             category = (TextView) viewGroup.findViewById(R.id.category_RL);

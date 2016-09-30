@@ -52,6 +52,13 @@ public class ReviewDBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor getReviewsSortByTitle(SQLiteDatabase db){
+        Cursor cursor;
+        String[] projections = {ReviewContract.ReviewInfo.REVIEW_TITLE, ReviewContract.ReviewInfo.REVIEW_CATEGORY, ReviewContract.ReviewInfo.REVIEW_RATING, ReviewContract.ReviewInfo.REVIEW_REVIEW};
+        cursor = db.query(ReviewContract.ReviewInfo.TABLE_NAME, projections, null, null, null, null, "LOWER(" + ReviewContract.ReviewInfo.REVIEW_TITLE+ ")");
+        return cursor;
+    }
+
     public Cursor getReviewsSortByCategory(SQLiteDatabase db){
         Cursor cursor;
         String[] projections = {ReviewContract.ReviewInfo.REVIEW_TITLE, ReviewContract.ReviewInfo.REVIEW_CATEGORY, ReviewContract.ReviewInfo.REVIEW_RATING, ReviewContract.ReviewInfo.REVIEW_REVIEW};
@@ -63,6 +70,13 @@ public class ReviewDBHelper extends SQLiteOpenHelper {
         Cursor cursor;
         String[] projections = {ReviewContract.ReviewInfo.REVIEW_TITLE, ReviewContract.ReviewInfo.REVIEW_CATEGORY, ReviewContract.ReviewInfo.REVIEW_RATING, ReviewContract.ReviewInfo.REVIEW_REVIEW};
         cursor = db.query(ReviewContract.ReviewInfo.TABLE_NAME, projections, null, null, null, null, ReviewContract.ReviewInfo.REVIEW_RATING + " DESC;");
+        return cursor;
+    }
+
+    public Cursor getReviewsSortByReview(SQLiteDatabase db){
+        Cursor cursor;
+        String[] projections = {ReviewContract.ReviewInfo.REVIEW_TITLE, ReviewContract.ReviewInfo.REVIEW_CATEGORY, ReviewContract.ReviewInfo.REVIEW_RATING, ReviewContract.ReviewInfo.REVIEW_REVIEW};
+        cursor = db.query(ReviewContract.ReviewInfo.TABLE_NAME, projections, null, null, null, null, "LOWER(" + ReviewContract.ReviewInfo.REVIEW_REVIEW + ")");
         return cursor;
     }
 
