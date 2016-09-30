@@ -18,6 +18,7 @@ public class ListDataAdapter extends ArrayAdapter{
 
     List list = new ArrayList();
 
+
     public ListDataAdapter(Context context, int resource) {
         super(context, resource);
     }

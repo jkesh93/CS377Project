@@ -52,6 +52,20 @@ public class ReviewDBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor getReviewsSortByCategory(SQLiteDatabase db){
+        Cursor cursor;
+        String[] projections = {ReviewContract.ReviewInfo.REVIEW_TITLE, ReviewContract.ReviewInfo.REVIEW_CATEGORY, ReviewContract.ReviewInfo.REVIEW_RATING, ReviewContract.ReviewInfo.REVIEW_REVIEW};
+        cursor = db.query(ReviewContract.ReviewInfo.TABLE_NAME, projections, null, null, null, null, "LOWER(" + ReviewContract.ReviewInfo.REVIEW_CATEGORY + ")");
+        return cursor;
+    }
+
+    public Cursor getReviewsSortByRating(SQLiteDatabase db){
+        Cursor cursor;
+        String[] projections = {ReviewContract.ReviewInfo.REVIEW_TITLE, ReviewContract.ReviewInfo.REVIEW_CATEGORY, ReviewContract.ReviewInfo.REVIEW_RATING, ReviewContract.ReviewInfo.REVIEW_REVIEW};
+        cursor = db.query(ReviewContract.ReviewInfo.TABLE_NAME, projections, null, null, null, null, ReviewContract.ReviewInfo.REVIEW_RATING + " DESC;");
+        return cursor;
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 

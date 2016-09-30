@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".addReview" />
         <activity android:name=".viewReview" />
+        <activity android:name=".data_cube"></activity>
     </application>
 
 </manifest>

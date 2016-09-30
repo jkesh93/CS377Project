@@ -4,40 +4,15 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text="@string/category"
+        android:text="Item:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title_data_cube"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:id="@+id/category_data_cube" />
-
-    <TextView
-        android:text="@string/rating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:id="@+id/rating_data_cube"
-        android:layout_below="@+id/category_data_cube"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:text="@string/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:id="@+id/title_data_cube"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:text="@string/review"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="38dp"
-        android:id="@+id/review_data_cube"
-        android:layout_below="@+id/rating_data_cube"
-        android:layout_alignStart="@+id/rating_data_cube" />
+        android:id="@+id/item"
+        android:layout_marginStart="14dp"
+        android:layout_alignBaseline="@+id/title_data_cube"
+        android:layout_alignBottom="@+id/title_data_cube"
+        android:layout_alignParentStart="true"
+        android:textStyle="normal|bold" />
 
     <Button
         android:text="@string/delete_button"
@@ -47,4 +22,71 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
         android:id="@+id/button" />
+
+    <TextView
+        android:text="Category:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/item2"
+        android:layout_alignBaseline="@+id/category_data_cube"
+        android:layout_alignBottom="@+id/category_data_cube"
+        android:layout_alignStart="@+id/item3"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text="Rating:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/item3"
+        android:layout_alignBaseline="@+id/rating_data_cube"
+        android:layout_alignBottom="@+id/rating_data_cube"
+        android:layout_alignStart="@+id/item4"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text="Review:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/item4"
+        android:layout_alignBaseline="@+id/review_data_cube"
+        android:layout_alignBottom="@+id/review_data_cube"
+        android:layout_alignStart="@+id/item"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text="@string/category"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:id="@+id/category_data_cube"
+        android:layout_width="200dp"
+        android:layout_below="@+id/title_data_cube"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="@string/review"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:id="@+id/review_data_cube"
+        android:textAlignment="viewStart"
+        android:layout_width="220dp"
+        android:layout_below="@+id/rating_data_cube"
+        android:layout_alignStart="@+id/rating_data_cube" />
+
+    <TextView
+        android:text="@string/rating"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:id="@+id/rating_data_cube"
+        android:layout_width="220dp"
+        android:layout_below="@+id/category_data_cube"
+        android:layout_alignStart="@+id/category_data_cube" />
+
+    <TextView
+        android:text="@string/title"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:id="@+id/title_data_cube"
+        android:layout_width="220dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/category_data_cube" />
 </RelativeLayout>
