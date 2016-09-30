@@ -58,19 +58,15 @@ public class ListDataAdapter extends ArrayAdapter{
             layoutHandler.rating = (TextView) row.findViewById(R.id.rating_RL);
             layoutHandler.review = (TextView) row.findViewById(R.id.review_RL);
             row.setTag(layoutHandler);
-
         }
         else{
             layoutHandler =(LayoutHandler) row.getTag();
         }
-
         DataProvider dataProvider = (DataProvider) this.getItem(position);
         layoutHandler.title.setText(dataProvider.getTitle());
         layoutHandler.category.setText(dataProvider.getCategory());
         layoutHandler.rating.setText(dataProvider.getRating());
         layoutHandler.review.setText(dataProvider.getReview());
-
-
         return row;
 
     }
